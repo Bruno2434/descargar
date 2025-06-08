@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+import yt_dlp
+
+print("Elige entre las siguientes opciones\n")
+choice = input("1.video 2.audio (elegir solo 1 o 2)\n")
+if choice == "1":
+    url = input("introduzca la url: ")
+    ydl_opts = {
+            "format" : "bestvideo[height <= 480] + bestaudio/best[height <= 480]"
+            }
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+    print("descarga completa")
+else:
+     print("no introdujo ningun numero o introdijo una opcion inexistente")
